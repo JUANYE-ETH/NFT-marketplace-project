@@ -1,0 +1,14 @@
+  .each_post {
+    width: fit-content;
+    padding: 25px;
+    margin-left: 25%;
+    text-align: center;
+  }
+
+  .each_post img {
+    width: 75%;
+  }
+  
+  .each_post img:hover { 
+    transform: scale(1.05); 
+  }

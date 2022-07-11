@@ -1,0 +1,29 @@
+.about {
+    text-align: center;
+    height: 160vh;
+    padding: 25px;
+    line-height: 40px;
+    background-color: #e8f5fe;
+}
+
+.text {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 910px;
+    min-height: 245px;
+    background: #161a2b;
+    text-align: center;
+    margin: 128px auto;
+    border-radius: 10px;
+    padding: 25px;
+    background-color: #808080;
+}
+
+h2#about {
+    color: white;
+    font-size: 40px;
+    text-shadow: -1px 1px 2px #000, 1px 1px 2px #000, 1px -1px 0 #000, -1px -1px 0 #000;
+    position: relative;
+    bottom: -90px;
+}
