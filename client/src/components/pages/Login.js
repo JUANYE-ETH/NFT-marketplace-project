@@ -11,13 +11,13 @@ const Login = ({ setCurrentUser }) => {
 
 	function loginUser(e) {
 		e.preventDefault();
-		// dispatch(
-		// 	login({
-		// 		username: username,
-		// 		password: password,
-		// 		loggedIn: true,
-		// 	})
-		// );
+		dispatch(
+			login({
+				username: username,
+				password: password,
+				loggedIn: true,
+			})
+		);
 		fetch("/login", {
 			method: "POST",
 			headers: {
