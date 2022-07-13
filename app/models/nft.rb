@@ -11,4 +11,12 @@ class Nft < ApplicationRecord
     def self.alpha
         self.order(:nft_name)
     end
+
+    def self.price
+        self.order(:nft_price, :asc)
+    end
+
+    def self.date
+        self.order(:created_at, :desc)
+    end
 end

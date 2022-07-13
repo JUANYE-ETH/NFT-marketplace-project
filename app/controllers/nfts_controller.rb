@@ -43,7 +43,7 @@ class NftsController < ApplicationController
 
   #Custom controller method #1
   def nfts_by_price
-    nfts = Nft.order(price: :asc)
+    nfts = Nft.price
     render json: nfts, status: :ok
   end
 
@@ -55,14 +55,14 @@ class NftsController < ApplicationController
 
   #Custom controller method #3
   def nfts_by_date
-    nfts = Nft.order(created_at: :desc)
+    nfts = Nft.date
     render json: nfts, status: :ok
   end
 
   private   
     #  Only allow a list of trusted parameters through.
     def nft_params
-      params.permit(:nft_name, :description, :price, :user_id, :image)
+      params.permit(:nft_name, :description, :price, :user_id, :image, :nft_collection_id)
     end
 
     #only for actions with id in their route

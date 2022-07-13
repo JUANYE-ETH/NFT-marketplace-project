@@ -5,7 +5,10 @@ function NewNft({ onPostAdd }) {
 	const [nft_name, setNftName] = useState("");
 	const [description, setDescription] = useState("");
 	const [price, setPrice] = useState("");
+	const [image, setImage] = useState("");
 	const [collection_id, setCollectionId] = useState("");
+
+	// const nft_collect = nfts.map((nft) => nft.nft_collection);
 
 	function submitNewPost(e) {
 		e.preventDefault();
@@ -14,12 +17,14 @@ function NewNft({ onPostAdd }) {
 			nft_name: nft_name,
 			description: description,
 			price: price,
+			image: image,
 			collection_id: collection_id,
 		};
 		onPostAdd(post);
 		setNftName("");
 		setDescription("");
 		setPrice("");
+		setImage("");
 		setCollectionId("");
 	}
 
@@ -39,6 +44,10 @@ function NewNft({ onPostAdd }) {
 		setCollectionId(e.target.value);
 	}
 
+	function handleImageChange(e) {
+		setImage(e.target.value);
+	}
+
 	return (
 		<div className="new-nft-page">
 			<form onSubmit={submitNewPost} className="newpost">
@@ -50,6 +59,14 @@ function NewNft({ onPostAdd }) {
 					id="nft_name"
 					onChange={handleNftChange}
 					value={nft_name}
+				/>
+				<br />
+				<input
+					type="text"
+					placeholder="Image URL"
+					id="image"
+					onChange={handleImageChange}
+					value={image}
 				/>
 				<br />
 				<input

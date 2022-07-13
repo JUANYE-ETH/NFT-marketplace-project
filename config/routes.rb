@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   
   resources :nft_collections
-  resources :comments, only: :create
+  resources :comments, only: [:create, :index]
   resources :likes, only: :create
   resources :nfts
   resources :users, only: [:show, :index, :create]

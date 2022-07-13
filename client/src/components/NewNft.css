@@ -3,6 +3,42 @@
     height: 90vh;
     padding:25px;
   }
+
+  .new-nft-page input {
+    width: 430px;
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 4px 4px 4px;
+  }
+
+  .new-nft-page input#description {
+    height: 185px;
+  }
+
+  .new-nft-page button {
+    padding: 16px;
+    border: none;
+    border-radius: 4px 4px 4px 4px;
+    cursor: pointer;
+    outline: none;
+    color: #333;
+    transition-duration: .2s;
+    position: relative;
+    bottom: -33px;
+  }
+
+  .new-nft-page select {
+    padding: 14px 32px 14px 16px;
+    border-radius: 4px 4px 4px 4px;
+    border: 2px solid white;
+    outline: none;
+    width: 400px;
+    background: transparent;
+    color: #fff;
+    margin-right: 8px;
+    position: relative;
+    bottom: -14px;
+  }
+
   .newpost {
     background-color: #333;
     flex-direction: column;

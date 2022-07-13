@@ -15,6 +15,7 @@ const NftItem = ({ post, onItemDelete, onEditItem, currentUser }) => {
 		image,
 		user_can_modify,
 		nft_collection,
+		comments,
 	} = post;
 
 	function toggleEditItem() {
@@ -47,6 +48,7 @@ const NftItem = ({ post, onItemDelete, onEditItem, currentUser }) => {
 			<h4>Price: ${price}</h4>
 			<h4>Made By: {nft_collection.made_by}</h4>
 			<h4>Owner: {user.username}</h4>
+			<h4>Comments: {comments.content}</h4>
 
 			{showEdit ? (
 				<EditForm

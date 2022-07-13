@@ -8,6 +8,10 @@ class CommentsController < ApplicationController
         end
     end
 
+    def index
+        render json: Comment.all, status: :ok
+    end
+
     private
 
     def commentParams

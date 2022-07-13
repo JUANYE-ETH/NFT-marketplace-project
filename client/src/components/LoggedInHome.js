@@ -58,7 +58,7 @@ function LoggedInHome({ currentUser }) {
 			</div>
 			<div className="filter-buttons">
 				<button onClick={handleSortAlpha} className="filter-alpha">
-					FILTER A-Z
+					SORT A-Z
 				</button>
 				<br />
 				<button onClick={handleSortDate} className="filter-date">
