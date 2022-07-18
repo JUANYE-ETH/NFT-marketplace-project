@@ -2,7 +2,7 @@ class NftCollectionsController < ApplicationController
 
   #GET /collection
   def index
-    collections = Nft_collection.all
+    collections = NftCollection.all
     render json: collections, status: :ok
   end
 
@@ -15,7 +15,7 @@ class NftCollectionsController < ApplicationController
   private
   
     def find_collection
-       Nft_collection.find(params[:id])
+       NftCollection.find(params[:id])
     end
 
 end

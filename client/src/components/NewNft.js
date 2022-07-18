@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "./NewNft.css";
+import { useNavigate } from "react-router-dom";
 
 function NewNft({ onPostAdd }) {
 	const [nft_name, setNftName] = useState("");
@@ -7,8 +8,15 @@ function NewNft({ onPostAdd }) {
 	const [price, setPrice] = useState("");
 	const [image, setImage] = useState("");
 	const [collection_id, setCollectionId] = useState("");
+	const [nft_collections, setNft_collections] = useState([]);
 
-	// const nft_collect = nfts.map((nft) => nft.nft_collection);
+	const navigate = useNavigate();
+
+	useEffect(() => {
+		fetch("/nft_collections")
+			.then((response) => response.json())
+			.then(setNft_collections);
+	}, []);
 
 	function submitNewPost(e) {
 		e.preventDefault();
@@ -18,15 +26,18 @@ function NewNft({ onPostAdd }) {
 			description: description,
 			price: price,
 			image: image,
-			collection_id: collection_id,
+			nft_collection_id: collection_id,
 		};
 		onPostAdd(post);
 		setNftName("");
 		setDescription("");
 		setPrice("");
 		setImage("");
-		setCollectionId("");
+		setCollectionId(0);
+
+		navigate("/");
 	}
+	console.log(collection_id);
 
 	function handleNftChange(e) {
 		setNftName(e.target.value);
@@ -86,22 +97,13 @@ function NewNft({ onPostAdd }) {
 					value={price}
 				/>
 				<br />
-				<select onChange={handleCollectionChange}>
+				<select value={collection_id} onChange={handleCollectionChange}>
 					<option id="collection_id" value="">
 						Select the NFT Collection
 					</option>
-					<option id="collection_id" value="1">
-						Sporting
-					</option>
-					<option id="collection_id" value="2">
-						Tools
-					</option>
-					<option id="collection_id" value="3">
-						Misc
-					</option>
-					<option id="collection_id" value="4">
-						Free
-					</option>
+					{nft_collections.map((nft_collection) => (
+						<option value={nft_collection.id}>{nft_collection.made_by}</option>
+					))}
 				</select>
 				<br />
 				<button className="add-btn">ADD NFT</button>

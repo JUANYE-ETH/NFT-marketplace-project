@@ -13,10 +13,10 @@ class Nft < ApplicationRecord
     end
 
     def self.price
-        self.order(:nft_price, :asc)
+        self.order(:price)
     end
 
     def self.date
-        self.order(:created_at, :desc)
+        self.order(:created_at)
     end
 end

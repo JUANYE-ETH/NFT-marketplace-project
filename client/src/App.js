@@ -13,7 +13,7 @@ import About from "./components/About";
 function App() {
 	const [nfts, setNfts] = useState([]);
 	const [currentUser, setCurrentUser] = useState(null);
-	const [authChecked, setAuthChecked] = useState(false);
+	// const [authChecked, setAuthChecked] = useState(false);
 
 	useEffect(() => {
 		fetch("/me").then((resp) => {

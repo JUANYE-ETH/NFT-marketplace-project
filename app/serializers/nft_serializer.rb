@@ -6,8 +6,8 @@ class NftSerializer < ActiveModel::Serializer
   has_many :comments 
   has_many :likes
   
-  # def user_can_modify
-  #   current_user.admin? || current_user == self.object.user
-  # end
+  def user_can_modify
+    current_user.admin? || current_user == self.object.user
+  end
 
 end

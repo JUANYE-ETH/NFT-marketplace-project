@@ -10,8 +10,6 @@ Rails.application.routes.draw do
   post "/login", to: "sessions#create"
   post "/signup", to: "users#create"
   delete "/logout", to: "sessions#destroy"
-  get '/contact', to: 'contact#new'
-  post '/contact', to: 'contact#create'
   get "/nfts_by_price", to: "nfts#nfts_by_price"
   get "/nfts_by_order", to: "nfts#order"
   get "/nfts_by_date", to: "nfts#nfts_by_date"

@@ -20,6 +20,9 @@ h2#feed {
 
 .authpage {
     background-color: #e8f5fe;
+    padding: 2rem 2rem;
+    text-align: center;
+    
 }
 
 .filter-alpha {

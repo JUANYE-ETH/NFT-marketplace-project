@@ -1,6 +1,8 @@
 import React, { useState } from "react";
-import login from "../../features/userSlice";
+import { login } from "../../features/userSlice";
 import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import "./Login.css";
 
 const Login = ({ setCurrentUser }) => {
 	const [username, setUsername] = useState("");
@@ -8,16 +10,10 @@ const Login = ({ setCurrentUser }) => {
 	const [error, setError] = useState([]);
 
 	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	function loginUser(e) {
 		e.preventDefault();
-		dispatch(
-			login({
-				username: username,
-				password: password,
-				loggedIn: true,
-			})
-		);
 		fetch("/login", {
 			method: "POST",
 			headers: {
@@ -27,7 +23,9 @@ const Login = ({ setCurrentUser }) => {
 		}).then((res) => {
 			if (res.ok) {
 				res.json().then((user) => {
+					dispatch(login(user));
 					setCurrentUser(user);
+					navigate("/");
 				});
 			} else {
 				res.json().then((json) => setError(json.error));
@@ -42,6 +40,7 @@ const Login = ({ setCurrentUser }) => {
 		<div className="login">
 			<h2 className="unauth-header">LOGIN</h2>
 			<form onSubmit={loginUser}>
+				<br />
 				<label>Username</label>
 				<br />
 				<input
@@ -51,6 +50,7 @@ const Login = ({ setCurrentUser }) => {
 					placeholder="Username"
 					onChange={(e) => setUsername(e.target.value)}
 				/>
+				<br />
 				<br />
 				<label>Password</label>
 				<br />
@@ -62,7 +62,8 @@ const Login = ({ setCurrentUser }) => {
 					onChange={(e) => setPassword(e.target.value)}
 				/>
 				<br />
-				<button className="unauth-button">LOG IN</button>
+				<br />
+				<button className="login-btn">LOG IN</button>
 			</form>
 			{error ? <div>{error}</div> : null}
 		</div>

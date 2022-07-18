@@ -26,7 +26,6 @@ class NftsController < ApplicationController
 
   #PATCH /nfts/1
   def update
-   
     if @nft
       @nft.update(nft_params)
       render json: @nft, status: :accepted
